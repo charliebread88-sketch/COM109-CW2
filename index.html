@@ -10,10 +10,13 @@
 </head>
 <body>
 
+  <!-- ===== SKIP LINK ===== -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
   <!-- ===== HEADER / NAV ===== -->
   <header class="site-header">
     <div class="container header-inner">
-      <a href="#" class="logo" aria-label="Peak Performance Gym – Home">
+      <a href="index.html" class="logo" aria-label="Peak Performance Gym – return to homepage">
         Peak<span>Performance</span>
       </a>
       <button class="nav-toggle" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
@@ -21,7 +24,7 @@
       </button>
       <nav id="main-nav" aria-label="Main navigation">
         <ul role="list">
-          <li><a href="#" class="active" aria-current="page">Home</a></li>
+          <li><a href="index.html" class="active" aria-current="page">Home</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="#">Membership</a></li>
           <li><a href="#">Classes</a></li>
@@ -31,23 +34,23 @@
     </div>
   </header>
 
-  <main id="main-content">
+  <main id="main-content" tabindex="-1">
 
     <!-- ===== HERO ===== -->
-    <section class="hero" aria-labelledby="hero-heading">
+    <section class="hero" aria-labelledby="hero-heading" role="region">
       <div class="hero-overlay"></div>
       <div class="container hero-content">
         <h1 id="hero-heading">Train Hard.<br />Live Strong.</h1>
-        <p>State-of-the-art facilities, expert coaches, and a community that pushes you further.</p>
+        <p id="hero-desc">State-of-the-art facilities, expert coaches, and a community that pushes you further.</p>
         <div class="hero-cta">
-          <a href="#" class="btn btn-primary">Join Now</a>
-          <a href="#" class="btn btn-outline">View Classes</a>
+          <a href="#" class="btn btn-primary" aria-describedby="hero-desc">Join Now</a>
+          <a href="#" class="btn btn-outline" aria-describedby="hero-desc">View Classes</a>
         </div>
       </div>
     </section>
 
     <!-- ===== KEY FEATURES ===== -->
-    <section class="features section-pad" aria-labelledby="features-heading">
+    <section class="features section-pad" aria-labelledby="features-heading" role="region">
       <div class="container">
         <h2 id="features-heading" class="section-title">Why Choose Us</h2>
         <div class="features-grid">
@@ -76,47 +79,47 @@
     </section>
 
     <!-- ===== MEMBERSHIP SNAPSHOT ===== -->
-    <section class="membership-preview section-pad bg-dark" aria-labelledby="membership-heading">
+    <section class="membership-preview section-pad bg-dark" aria-labelledby="membership-heading" role="region">
       <div class="container">
         <h2 id="membership-heading" class="section-title">Membership Plans</h2>
         <div class="plans-grid">
-          <article class="plan-card">
+          <article class="plan-card" aria-label="Basic membership plan">
             <h3>Basic</h3>
             <p class="price">£19<span>/mo</span></p>
-            <ul role="list">
+            <ul role="list" aria-label="Basic plan features">
               <li>Gym floor access</li>
               <li>Locker room</li>
               <li>2 group classes/month</li>
             </ul>
-            <a href="#" class="btn btn-outline">Get Started</a>
+            <a href="#" class="btn btn-outline" aria-label="Get started with Basic plan at £19 per month">Get Started</a>
           </article>
-          <article class="plan-card featured">
-            <span class="badge">Most Popular</span>
+          <article class="plan-card featured" aria-label="Standard membership plan, most popular">
+            <span class="badge" aria-hidden="true">Most Popular</span>
             <h3>Standard</h3>
             <p class="price">£35<span>/mo</span></p>
-            <ul role="list">
+            <ul role="list" aria-label="Standard plan features">
               <li>Everything in Basic</li>
               <li>Unlimited group classes</li>
               <li>1 PT session/month</li>
             </ul>
-            <a href="#" class="btn btn-primary">Get Started</a>
+            <a href="#" class="btn btn-primary" aria-label="Get started with Standard plan at £35 per month">Get Started</a>
           </article>
-          <article class="plan-card">
+          <article class="plan-card" aria-label="Premium membership plan">
             <h3>Premium</h3>
             <p class="price">£55<span>/mo</span></p>
-            <ul role="list">
+            <ul role="list" aria-label="Premium plan features">
               <li>Everything in Standard</li>
               <li>Unlimited PT sessions</li>
               <li>Nutrition coaching</li>
             </ul>
-            <a href="#" class="btn btn-outline">Get Started</a>
+            <a href="#" class="btn btn-outline" aria-label="Get started with Premium plan at £55 per month">Get Started</a>
           </article>
         </div>
       </div>
     </section>
 
     <!-- ===== TESTIMONIALS ===== -->
-    <section class="testimonials section-pad" aria-labelledby="testimonials-heading">
+    <section class="testimonials section-pad" aria-labelledby="testimonials-heading" role="region">
       <div class="container">
         <h2 id="testimonials-heading" class="section-title">What Our Members Say</h2>
         <div class="testimonials-grid">
@@ -137,7 +140,7 @@
     </section>
 
     <!-- ===== CTA BANNER ===== -->
-    <section class="cta-banner section-pad" aria-labelledby="cta-heading">
+    <section class="cta-banner section-pad" aria-labelledby="cta-heading" role="region">
       <div class="container cta-inner">
         <h2 id="cta-heading">Ready to Start Your Journey?</h2>
         <p>Get your first week free — no commitment, no contract.</p>
