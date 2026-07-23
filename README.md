@@ -2,7 +2,7 @@
 
 ## 📌 Project Overview
 **Theme:** [Gym website]  
-**Target Audience:** [All audiece ]  
+**Target Audience:** [All audience]  
 **Live Site / Repository:** [https://github.com/charliebread88-sketch/COM109-CW2]  
 
 This multi-page web application was developed as part of Coursework 2 for the Client-Side Development module. It acts as a digital showcase featuring dynamic content, client-side data persistence, and interactive form handling.
