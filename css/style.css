@@ -84,7 +84,7 @@ ul { list-style: none; }
   min-height: 90vh;
   display: flex;
   align-items: center;
-  background: url('../images/hero-bg.jpg') center/cover no-repeat;
+  background: url('../images/homepagehero.jpg') center/cover no-repeat;
   background-color: var(--clr-dark-2);
 }
 .hero-overlay {
