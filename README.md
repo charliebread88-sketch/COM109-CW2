@@ -17,7 +17,7 @@ This multi-page web application was developed as part of Coursework 2 for the Cl
 | **[Member 2 Name]** | `[ID]` | CSS Architecture, Responsive Grid/Flexbox layouts, Animations |
 | **[Member 3 Name]** | `[ID]` | Interactive Web Form, Regex Validation, Dynamic UI (jQuery) |
 | **[Member 4 Name]** | `[ID]` | JavaScript logic, `localStorage`/`sessionStorage` management |
-
+                                    These roles can change just have them here for reference 
 ---
 
 ## 🛠️ Core Features & Technical Stack
