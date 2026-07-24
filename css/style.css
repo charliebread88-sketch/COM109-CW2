@@ -295,7 +295,11 @@ ul { list-style: none; }
   border-radius: var(--radius);
   padding: 2rem 1.5rem;
   text-align: center;
+<<<<<<< HEAD
   transition: transform var(--transition), box-shadow var(--transition);
+=======
+  transition: transform var(--transition), box-shadow var(--transition));
+>>>>>>> 54369a5e4c7967e500170dc18fd1e04187786499
 }
 .team-card:hover { transform: translateY(-4px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
 .team-avatar { font-size: 3.5rem; margin-bottom: 0.75rem; }
@@ -327,6 +331,7 @@ ul { list-style: none; }
 
   .story-inner { grid-template-columns: 1fr; }
 }
+<<<<<<< HEAD
 .contact-card {
   background: var(--clr-light);
   border-radius: var(--radius);
@@ -357,3 +362,5 @@ ul { list-style: none; }
 main section:last-child {
     padding-bottom: 3rem;
 }
+=======
+>>>>>>> 54369a5e4c7967e500170dc18fd1e04187786499
