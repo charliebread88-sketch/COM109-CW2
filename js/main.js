@@ -18,3 +18,103 @@ $(function () {
     $toggle.attr('aria-expanded', false);
   });
 });
+
+$(document).ready(function () {
+  // Mobile nav toggle
+  $('.nav-toggle').on('click', function () {
+    const nav = $('#main-nav');
+    const isOpen = nav.hasClass('open');
+
+    nav.toggleClass('open');
+    $(this).attr('aria-expanded', !isOpen);
+  });
+
+  // Footer year
+  $('#year').text(new Date().getFullYear());
+
+  // Show success banner on index page if redirected after join
+  if (window.location.pathname.endsWith('index.html') || window.location.pathname === '/' || window.location.pathname.endsWith('/')) {
+    const joined = sessionStorage.getItem('gymJoinSuccess');
+
+    if (joined === 'true') {
+      if ($('.success-banner').length === 0) {
+        $('body').prepend('<div class="success-banner">Successfully joined! Welcome to Peak Performance Gym.</div>');
+      } else {
+        $('.success-banner').removeClass('hidden');
+      }
+
+      sessionStorage.removeItem('gymJoinSuccess');
+
+      setTimeout(function () {
+        $('.success-banner').fadeOut(300, function () {
+          $(this).remove();
+        });
+      }, 4000);
+    }
+  }
+
+  // Membership form validation
+  $('.join-form').on('submit', function (e) {
+    e.preventDefault();
+
+    let isValid = true;
+
+    // Clear previous errors
+    $('.invalid-field').removeClass('invalid-field');
+    $('.invalid-message').text('');
+
+    const name = $('input[name="full-name"]');
+    const email = $('input[name="email"]');
+    const phone = $('input[name="phone"]');
+    const plan = $('select[name="plan"]');
+    const notes = $('textarea[name="notes"]');
+
+    function markInvalid(field, message) {
+      field.addClass('invalid-field');
+      field.next('.invalid-message').text(message);
+      isValid = false;
+    }
+
+    // Name
+    if ($.trim(name.val()) === '') {
+      markInvalid(name, 'Please enter your full name.');
+    }
+
+    // Email
+    const emailValue = $.trim(email.val());
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (emailValue === '') {
+      markInvalid(email, 'Please enter your email address.');
+    } else if (!emailPattern.test(emailValue)) {
+      markInvalid(email, 'Please enter a valid email address.');
+    }
+
+    // Phone (not required)
+    const phoneValue = $.trim(phone.val());
+    const phonePattern = /^[0-9+\-\s]{7,20}$/;
+    if (phoneValue !== '' && !phonePattern.test(phoneValue)) {
+      markInvalid(phone, 'Please enter a valid phone number.');
+    }
+
+    // Plan
+    if (plan.val() === '') {
+      markInvalid(plan, 'Please choose a membership plan.');
+    }
+
+    // Notes
+    if ($.trim(notes.val()).length > 300) {
+      markInvalid(notes, 'Notes must be 300 characters or fewer.');
+    }
+
+    if (isValid) {
+      sessionStorage.setItem('gymJoinSuccess', 'true');
+      window.location.href = 'index.html';
+    }
+  });
+
+  // Clear invalid style as user edits fields
+  $('.join-form input, .join-form select, .join-form textarea').on('input change', function () {
+    $(this).removeClass('invalid-field');
+    $(this).next('.invalid-message').text('');
+  });
+});

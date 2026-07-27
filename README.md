@@ -2,7 +2,7 @@
 
 ## 📌 Project Overview
 **Theme:** [Gym website]  
-**Target Audience:** [All audience]  
+**Target Audience:** [All audiece ]  
 **Live Site / Repository:** [https://github.com/charliebread88-sketch/COM109-CW2]  
 
 This multi-page web application was developed as part of Coursework 2 for the Client-Side Development module. It acts as a digital showcase featuring dynamic content, client-side data persistence, and interactive form handling.
@@ -14,10 +14,10 @@ This multi-page web application was developed as part of Coursework 2 for the Cl
 | Name | Student ID | Individual Responsibilities / Modules |
 | :--- | :--- | :--- |
 | **[David Willis]** | `[B01047925]` | HTML structure, Accessibility (ARIA), Page navigation layout |
-| **[Eoin Heyes]** | `[B01021565]` | CSS Architecture, Responsive Grid/Flexbox layouts, Animations |
+| **[Member 2 Name]** | `[ID]` | CSS Architecture, Responsive Grid/Flexbox layouts, Animations |
 | **[Member 3 Name]** | `[ID]` | Interactive Web Form, Regex Validation, Dynamic UI (jQuery) |
-| **[Member 4 Name]** | `[ID]` | JavaScript logic, `localStorage`/`sessionStorage` management |
-                                    These roles can change just have them here for reference 
+| **[Charlie Baker]** | `[01038922]` | JavaScript logic, `localStorage`/`sessionStorage` management |
+
 ---
 
 ## 🛠️ Core Features & Technical Stack
