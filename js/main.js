@@ -60,6 +60,12 @@ $(function () {
       }
 
       // No backend is wired up yet — simulate a successful send.
+      console.log('Form submitted:', {
+        name: $('#name').val(),
+        email: $('#email').val(),
+        subject: $('#subject').val(),
+        message: $('#message').val()
+      });
       $status.removeClass('error').addClass('success')
         .text("Thanks! Your message has been sent \u2014 we'll get back to you soon.");
       $contactForm[0].reset();
