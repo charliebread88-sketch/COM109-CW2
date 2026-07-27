@@ -5,10 +5,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Contact Us – Peak Performance Gym</title>
         <link rel="stylesheet" href="css/style.css" />
-        <script src="https://code.jquery.com/jquery-3.7.1.min.js" defer></script>
+        <script src="js/jquery.min.js" defer></script>
         <script src="js/main.js" defer></script>
     </head>
     <body>
+
+  <!-- ===== SKIP LINK ===== -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
         <!-- ===== HEADER / NAV ===== -->
          <header class="site-header">
             <div class="container header-inner">
@@ -29,10 +33,11 @@
                 </nav>
             </div>
         </header>
-        <main id="main-content">
+
+        <main id="main-content" tabindex="-1">
 
     <!-- ===== PAGE HERO ===== -->
-    <section class="page-hero" aria-labelledby="page-hero-heading">
+    <section class="page-hero" aria-labelledby="page-hero-heading" role="region">
       <div class="page-hero-overlay"></div>
       <div class="container page-hero-content">
         <h1 id="page-hero-heading">Contact Us</h1>
@@ -41,44 +46,46 @@
     </section>
 
     <!-- ===== CONTACT INFO ===== -->
-    <section class="contact-info section-pad" aria-labelledby="contact-info-heading">
+    <section class="contact-info section-pad" aria-labelledby="contact-info-heading" role="region">
       <div class="container contact-info-inner">
         <h2 id="contact-info-heading" class="section-title">Get in Touch</h2>
         <div class="contact-grid">
-          <div class="contact-card">
+          <address class="contact-card">
             <div class="contact-icon" aria-hidden="true">📍</div>
             <h3>Address</h3>
             <p>123 Fitness Avenue, Belfast, UK</p>
-          </div>
-          <div class="contact-card">
+          </address>
+          <address class="contact-card">
             <div class="contact-icon" aria-hidden="true">📞</div>
             <h3>Call Us</h3>
-            <p>+44 28 9032 4567</p>
-          </div>
-          <div class="contact-card">
+            <p><a href="tel:+442890324567">+44 28 9032 4567</a></p>
+          </address>
+          <address class="contact-card">
             <div class="contact-icon" aria-hidden="true">✉️</div>
             <h3>Email Us</h3>
-            <p>info@peakperformancegym.com</p>
-          </div>
+            <p><a href="mailto:info@peakperformancegym.com">info@peakperformancegym.com</a></p>
+          </address>
         </div>
       </div>
     </section>
 
     <!-- ===== CONTACT FORM ===== -->
-    <section class="contact-form section-pad bg-dark" aria-labelledby="contact-form-heading">
+    <section class="contact-form section-pad bg-dark" aria-labelledby="contact-form-heading" role="region">
       <div class="container">
         <h2 id="contact-form-heading" class="section-title">Send Us a Message</h2>
-        <form id="contact-form" novalidate>
+        <form id="contact-form" novalidate aria-label="Contact form">
           <div class="form-row">
             <div class="form-group">
-              <label for="name">Name</label>
-              <input type="text" id="name" name="name" autocomplete="name" required />
-              <span class="form-error" id="name-error" role="alert"></span>
+              <label for="name">Full Name <span aria-hidden="true">*</span><span class="sr-only">(required)</span></label>
+              <input type="text" id="name" name="name" autocomplete="name" required
+                aria-required="true" aria-describedby="name-error" />
+              <span class="form-error" id="name-error" role="alert" aria-live="polite"></span>
             </div>
             <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" autocomplete="email" required />
-              <span class="form-error" id="email-error" role="alert"></span>
+              <label for="email">Email Address <span aria-hidden="true">*</span><span class="sr-only">(required)</span></label>
+              <input type="email" id="email" name="email" autocomplete="email" required
+                aria-required="true" aria-describedby="email-error" />
+              <span class="form-error" id="email-error" role="alert" aria-live="polite"></span>
             </div>
           </div>
           <div class="form-group">
@@ -86,34 +93,37 @@
             <input type="text" id="subject" name="subject" autocomplete="off" />
           </div>
           <div class="form-group">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="5" required></textarea>
-            <span class="form-error" id="message-error" role="alert"></span>
+            <label for="message">Message <span aria-hidden="true">*</span><span class="sr-only">(required)</span></label>
+            <textarea id="message" name="message" rows="5" required
+              aria-required="true" aria-describedby="message-error"></textarea>
+            <span class="form-error" id="message-error" role="alert" aria-live="polite"></span>
           </div>
-          <button type="submit" class="btn btn-primary">Send Message</button>
-          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+          <button type="submit" class="btn btn-primary" aria-label="Submit contact form">Send Message</button>
+          <p class="form-status" id="form-status" role="status" aria-live="polite" aria-atomic="true"></p>
         </form>
       </div>
     </section>
-    <section>
+
+    <section aria-labelledby="social-heading" role="region">
       <div class="container">
-        <h2 class="section-title">Follow Us</h2>
+        <h2 id="social-heading" class="section-title">Follow Us</h2>
         <div class="social-icons">
-          <a href="#" aria-label="Facebook">
-            <img src="images/facebook.png" alt="Facebook" />
-            <h3>Facebook</h3>
+          <a href="#" aria-label="Follow us on Facebook">
+            <img src="images/facebook.png" alt="" aria-hidden="true" />
+            <span>Facebook</span>
           </a>
-          <a href="#" aria-label="Instagram">
-            <img src="images/instagram.png" alt="Instagram" />
-            <h3>Instagram</h3>
+          <a href="#" aria-label="Follow us on Instagram">
+            <img src="images/instagram.png" alt="" aria-hidden="true" />
+            <span>Instagram</span>
           </a>
-          <a href="#" aria-label="Twitter">
-            <img src="images/twitter.png" alt="Twitter" />
-            <h3>Twitter</h3>
+          <a href="#" aria-label="Follow us on Twitter">
+            <img src="images/twitter.png" alt="" aria-hidden="true" />
+            <span>Twitter</span>
           </a>
         </div>
       </div>
     </section>
+
   </main>
   
   <!-- ===== FOOTER ===== -->

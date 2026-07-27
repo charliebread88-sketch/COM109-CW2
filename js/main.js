@@ -36,7 +36,7 @@ $(function () {
       fields.forEach(function (field) {
         const $input = $('#' + field.id);
         const $error = $('#' + field.id + '-error');
-        const value = $.trim($input.val());
+        const value = $input.val().trim();
         let fieldValid = value.length > 0;
 
         if (fieldValid && field.isEmail) {

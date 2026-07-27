@@ -5,15 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Peak Performance Gym</title>
   <link rel="stylesheet" href="css/style.css" />
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js" defer></script>
+  <script src="js/jquery.min.js" defer></script>
   <script src="js/main.js" defer></script>
 </head>
 <body>
 
+  <!-- ===== SKIP LINK ===== -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
   <!-- ===== HEADER / NAV ===== -->
   <header class="site-header">
     <div class="container header-inner">
-      <a href="#" class="logo" aria-label="Peak Performance Gym – Home">
+      <a href="index.html" class="logo" aria-label="Peak Performance Gym – Home">
         Peak<span>Performance</span>
       </a>
       <button class="nav-toggle" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,10 +34,10 @@
     </div>
   </header>
 
-  <main id="main-content">
+  <main id="main-content" tabindex="-1">
 
     <!-- ===== HERO ===== -->
-    <section class="hero" aria-labelledby="hero-heading">
+    <section class="hero" aria-labelledby="hero-heading" role="region">
       <div class="hero-overlay"></div>
       <div class="container hero-content">
         <h1 id="hero-heading">Train Hard.<br />Live Strong.</h1>
@@ -47,7 +50,7 @@
     </section>
 
     <!-- ===== KEY FEATURES ===== -->
-    <section class="features section-pad" aria-labelledby="features-heading">
+    <section class="features section-pad" aria-labelledby="features-heading" role="region">
       <div class="container">
         <h2 id="features-heading" class="section-title">Why Choose Us</h2>
         <div class="features-grid">
@@ -76,7 +79,7 @@
     </section>
 
     <!-- ===== MEMBERSHIP SNAPSHOT ===== -->
-    <section class="membership-preview section-pad bg-dark" aria-labelledby="membership-heading">
+    <section class="membership-preview section-pad bg-dark" aria-labelledby="membership-heading" role="region">
       <div class="container">
         <h2 id="membership-heading" class="section-title">Membership Plans</h2>
         <div class="plans-grid">
@@ -116,7 +119,7 @@
     </section>
 
     <!-- ===== TESTIMONIALS ===== -->
-    <section class="testimonials section-pad" aria-labelledby="testimonials-heading">
+    <section class="testimonials section-pad" aria-labelledby="testimonials-heading" role="region">
       <div class="container">
         <h2 id="testimonials-heading" class="section-title">What Our Members Say</h2>
         <div class="testimonials-grid">
@@ -137,11 +140,11 @@
     </section>
 
     <!-- ===== CTA BANNER ===== -->
-    <section class="cta-banner section-pad" aria-labelledby="cta-heading">
+    <section class="cta-banner section-pad" aria-labelledby="cta-heading" role="region">
       <div class="container cta-inner">
         <h2 id="cta-heading">Ready to Start Your Journey?</h2>
         <p>Get your first week free — no commitment, no contract.</p>
-        <a href="#" class="btn btn-primary">Book a Free Trial</a>
+        <a href="contact.html" class="btn btn-primary">Book a Free Trial</a>
       </div>
     </section>
 

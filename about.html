@@ -5,10 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About Us – Peak Performance Gym</title>
   <link rel="stylesheet" href="css/style.css" />
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js" defer></script>
+  <script src="js/jquery.min.js" defer></script>
   <script src="js/main.js" defer></script>
 </head>
 <body>
+
+  <!-- ===== SKIP LINK ===== -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <!-- ===== HEADER / NAV ===== -->
   <header class="site-header">
@@ -31,10 +34,10 @@
     </div>
   </header>
 
-  <main id="main-content">
+  <main id="main-content" tabindex="-1">
 
     <!-- ===== PAGE HERO ===== -->
-    <section class="page-hero" aria-labelledby="page-hero-heading">
+    <section class="page-hero" aria-labelledby="page-hero-heading" role="region">
       <div class="page-hero-overlay"></div>
       <div class="container page-hero-content">
         <h1 id="page-hero-heading">About Us</h1>
@@ -43,7 +46,7 @@
     </section>
 
     <!-- ===== OUR STORY ===== -->
-    <section class="story section-pad" aria-labelledby="story-heading">
+    <section class="story section-pad" aria-labelledby="story-heading" role="region">
       <div class="container story-inner">
         <div class="story-text">
           <h2 id="story-heading">Our Story</h2>
@@ -72,7 +75,7 @@
     </section>
 
     <!-- ===== MISSION ===== -->
-    <section class="mission section-pad bg-dark" aria-labelledby="mission-heading">
+    <section class="mission section-pad bg-dark" aria-labelledby="mission-heading" role="region">
       <div class="container mission-inner">
         <h2 id="mission-heading" class="section-title">Our Mission</h2>
         <p class="mission-statement">"To create an inclusive, high-performance environment where every person — regardless of age, ability, or experience — can achieve their personal best."</p>
@@ -80,7 +83,7 @@
     </section>
 
     <!-- ===== VALUES ===== -->
-    <section class="values section-pad" aria-labelledby="values-heading">
+    <section class="values section-pad" aria-labelledby="values-heading" role="region">
       <div class="container">
         <h2 id="values-heading" class="section-title">What We Stand For</h2>
         <div class="values-grid">
@@ -109,7 +112,7 @@
     </section>
 
     <!-- ===== FACILITIES ===== -->
-    <section class="facilities section-pad bg-dark" aria-labelledby="facilities-heading">
+    <section class="facilities section-pad bg-dark" aria-labelledby="facilities-heading" role="region">
       <div class="container">
         <h2 id="facilities-heading" class="section-title">Our Facilities</h2>
         <div class="facilities-grid">
@@ -148,7 +151,7 @@
     </section>
 
     <!-- ===== TEAM ===== -->
-    <section class="team section-pad" aria-labelledby="team-heading">
+    <section class="team section-pad" aria-labelledby="team-heading" role="region">
       <div class="container">
         <h2 id="team-heading" class="section-title">Meet the Team</h2>
         <div class="team-grid">
@@ -181,11 +184,11 @@
     </section>
 
     <!-- ===== CTA BANNER ===== -->
-    <section class="cta-banner section-pad" aria-labelledby="cta-heading">
+    <section class="cta-banner section-pad" aria-labelledby="cta-heading" role="region">
       <div class="container cta-inner">
         <h2 id="cta-heading">Come and See It for Yourself</h2>
         <p>Book a free tour and trial session — no commitment required.</p>
-        <a href="#" class="btn btn-primary">Book a Free Trial</a>
+        <a href="contact.html" class="btn btn-primary">Book a Free Trial</a>
       </div>
     </section>
 
