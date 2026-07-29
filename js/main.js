@@ -32,6 +32,16 @@ $(document).ready(function () {
   // Footer year
   $('#year').text(new Date().getFullYear());
 
+  // Picks plan based off what plan is clicked on index form
+  if (window.location.pathname.endsWith('membership.html')) {
+    const planParam = new URLSearchParams(window.location.search).get('plan');
+    const allowedPlans = ['basic', 'standard', 'premium'];
+
+    if (planParam && allowedPlans.includes(planParam) && $('select[name="plan"]').length) {
+      $('select[name="plan"]').val(planParam).trigger('change');
+    }
+  }
+
   // Show success banner on index page if redirected after join
   if (window.location.pathname.endsWith('index.html') || window.location.pathname === '/' || window.location.pathname.endsWith('/')) {
     const joined = sessionStorage.getItem('gymJoinSuccess');
