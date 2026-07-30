@@ -5,10 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Join Membership | Peak Performance Gym</title>
   <link rel="stylesheet" href="css/style.css" />
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js" defer></script>
+  <link rel="icon" type="image/png" href="images/favicon.png" />
+  <script src="js/jquery.min.js" defer></script>
   <script src="js/main.js" defer></script>
 </head>
 <body>
+
+  <!-- ===== SKIP LINK ===== -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <!-- ===== HEADER / NAV ===== -->
   <header class="site-header">
@@ -27,13 +31,13 @@
           <li><a href="about.html">About</a></li>
           <li><a href="membership.html" class="active" aria-current="page">Membership</a></li>
           <li><a href="#">Classes</a></li>
-          <li><a href="#">Contact</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <main id="main-content">
+  <main id="main-content" tabindex="-1">
 
     <!-- ===== HERO ===== -->
     <section class="page-hero" aria-labelledby="page-heading">
@@ -168,7 +172,7 @@
       <div class="container cta-inner">
         <h2 id="cta-heading">Not Sure Which Plan Is Right?</h2>
         <p>Contact our team and we’ll help you find the best membership for your goals.</p>
-        <a href="#" class="btn btn-primary">Contact Us</a>
+        <a href="contact.html" class="btn btn-primary">Contact Us</a>
       </div>
     </section>
 
@@ -183,7 +187,7 @@
           <li><a href="about.html">About</a></li>
           <li><a href="membership.html">Membership</a></li>
           <li><a href="#">Classes</a></li>
-          <li><a href="#">Contact</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
       <p class="footer-copy">&copy; <span id="year"></span> Peak Performance Gym. All rights reserved.</p>
