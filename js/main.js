@@ -98,10 +98,21 @@ $(document).ready(function () {
   if (window.location.pathname.endsWith('membership.html')) {
     const planParam = new URLSearchParams(window.location.search).get('plan');
     const allowedPlans = ['basic', 'standard', 'premium'];
+    const $planSelect = $('select[name="plan"]');
 
-    if (planParam && allowedPlans.includes(planParam) && $('select[name="plan"]').length) {
-      $('select[name="plan"]').val(planParam).trigger('change');
+    if (planParam && allowedPlans.includes(planParam) && $planSelect.length) {
+      $planSelect.val(planParam).trigger('change');
     }
+
+    $('.plans-grid a[data-plan]').on('click', function () {
+      const selectedPlan = $(this).data('plan');
+
+      if (allowedPlans.includes(selectedPlan) && $planSelect.length) {
+        $planSelect.val(selectedPlan).trigger('change');
+        const nextUrl = `${window.location.pathname}?plan=${selectedPlan}${window.location.hash || '#join-form'}`;
+        window.history.replaceState({}, '', nextUrl);
+      }
+    });
   }
 
   // Show success banner on index page if redirected after join
