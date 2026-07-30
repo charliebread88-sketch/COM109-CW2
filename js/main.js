@@ -18,6 +18,48 @@ $(function () {
     $toggle.attr('aria-expanded', false);
   });
 
+  // Testimonials rotator
+  const testimonials = [
+    { quote: "Best gym I've ever joined. The trainers are incredible and the atmosphere keeps me coming back.", name: "Sarah M." },
+    { quote: "Lost 15kg in 6 months thanks to the PT programme. Couldn't recommend it more.", name: "James T." },
+    { quote: "The 24/7 access is a game changer. I train at 5am before work and it's always clean and well-staffed.", name: "Priya K." },
+    { quote: "The coaches here actually care about your progress. Best investment I've made in my health.", name: "Marcus L." },
+    { quote: "Switched from a big chain gym and I'll never go back. The community here is something else.", name: "Donna F." },
+    { quote: "The nutrition bar is a brilliant touch. Post-workout shakes on site makes such a difference.", name: "Tom H." },
+    { quote: "I was nervous joining as a complete beginner but everyone made me feel so welcome from day one.", name: "Aisha R." },
+    { quote: "Three months in and I've hit every goal I set. The PT sessions are worth every penny.", name: "Connor B." },
+    { quote: "Cleanest gym I've ever been in. Changing rooms are always spotless and the equipment is top notch.", name: "Rachel W." },
+    { quote: "The spin classes are absolutely brilliant. Lisa is an amazing instructor — so motivating.", name: "Niamh O." },
+    { quote: "Free parking right outside is such a small thing but it makes a huge difference to my routine.", name: "Gary S." },
+    { quote: "I've tried every gym in the city. This one is on another level for equipment and atmosphere.", name: "Zara A." },
+    { quote: "The HIIT classes with Danny are brutal in the best way. I've never been fitter in my life.", name: "Luke P." },
+    { quote: "Sophie's nutrition coaching completely changed how I fuel my training. Highly recommend.", name: "Emma C." },
+    { quote: "Joined on the Standard plan and it's incredible value. Unlimited classes alone is worth it.", name: "Ryan M." }
+  ];
+
+  const $grid = $('#testimonials-grid');
+  if ($grid.length) {
+    let current = 0;
+
+    function showTestimonials() {
+      const batch = [
+        testimonials[current % testimonials.length],
+        testimonials[(current + 1) % testimonials.length],
+        testimonials[(current + 2) % testimonials.length]
+      ];
+      $grid.fadeOut(400, function () {
+        $grid.html(batch.map(function (t) {
+          return '<blockquote class="testimonial-card"><p>"' + t.quote + '"</p><footer>— <cite>' + t.name + '</cite></footer></blockquote>';
+        }).join(''));
+        $grid.fadeIn(400);
+      });
+      current = (current + 3) % testimonials.length;
+    }
+
+    showTestimonials();
+    setInterval(showTestimonials, 30000);
+  }
+
   // Contact form validation
   const $contactForm = $('#contact-form');
 
