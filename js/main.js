@@ -118,6 +118,12 @@ $(function () {
   if ($scheduleCards.length) {
     const $bookingStatus = $('#booking-status');
     const $bookingList = $('#booking-list');
+    const $bookNowButton = $('#book-now-button');
+    const $bookingModal = $('#booking-form-modal');
+    const $bookingForm = $('#class-booking-form');
+    const $bookingFormStatus = $('#class-booking-form-status');
+    const $bookingFormClassList = $('#booking-form-class-list');
+    let lastFocusedElement = null;
     let bookings = [];
 
     try {
@@ -146,6 +152,49 @@ $(function () {
       localStorage.setItem(bookingStorageKey, JSON.stringify(bookings));
     }
 
+    function updateBookNowButton() {
+      $bookNowButton.prop('hidden', !bookings.length).prop('disabled', !bookings.length);
+    }
+
+    function clearBookingFormErrors() {
+      $bookingForm.find('input, textarea').removeClass('invalid');
+      $bookingForm.find('.form-error').text('');
+      $bookingFormStatus.removeClass('success error').text('');
+    }
+
+    function renderBookingPreview() {
+      $bookingFormClassList.empty();
+
+      bookings.forEach(function (booking) {
+        $bookingFormClassList.append(
+          '<li><strong>' + booking.className + '</strong><span>' + booking.day + ' at ' + booking.time + '</span></li>'
+        );
+      });
+    }
+
+    function closeBookingModal(shouldRestoreFocus) {
+      $bookingModal.attr('hidden', true).removeClass('is-open').attr('aria-hidden', 'true');
+      $('body').removeClass('modal-open');
+
+      if (shouldRestoreFocus && lastFocusedElement && $(lastFocusedElement).is(':visible')) {
+        $(lastFocusedElement).trigger('focus');
+      }
+    }
+
+    function openBookingModal() {
+      if (!bookings.length) {
+        return;
+      }
+
+      lastFocusedElement = document.activeElement;
+      $bookingForm[0].reset();
+      clearBookingFormErrors();
+      renderBookingPreview();
+      $bookingModal.removeAttr('hidden').addClass('is-open').attr('aria-hidden', 'false');
+      $('body').addClass('modal-open');
+      $('#membership-number').trigger('focus');
+    }
+
     // Mark timetable cards that are already booked
     function updateCardState() {
       $scheduleCards.each(function () {
@@ -169,8 +218,9 @@ $(function () {
       $bookingList.empty();
 
       if (!bookings.length) {
-        $bookingList.append('<li class="booking-empty">No sessions booked. Select any slot above to reserve a place.</li>');
-        $bookingStatus.removeClass('success').text(message || 'No classes booked yet.');
+        $bookingList.append('<li class="booking-empty">No sessions selected. Choose any slot above, then use Book now to complete the form.</li>');
+        $bookingStatus.removeClass('success').text(message || 'No classes selected yet.');
+        updateBookNowButton();
         updateCardState();
         return;
       }
@@ -185,7 +235,8 @@ $(function () {
         );
       });
 
-      $bookingStatus.toggleClass('success', !!isSuccess).text(message || 'Your selected sessions are saved on this device.');
+      $bookingStatus.toggleClass('success', !!isSuccess).text(message || 'Your selected sessions are saved on this device until you confirm the booking form.');
+      updateBookNowButton();
       updateCardState();
     }
 
@@ -223,7 +274,7 @@ $(function () {
       if (existingIndex >= 0) {
         bookings.splice(existingIndex, 1);
         saveBookings();
-        renderBookingList(booking.className + ' on ' + booking.day + ' at ' + booking.time + ' was cancelled.', false);
+        renderBookingList('Removed ' + booking.className + ' on ' + booking.day + ' at ' + booking.time + ' from your selection.', false);
         return;
       }
 
@@ -232,8 +283,120 @@ $(function () {
         return left.className.localeCompare(right.className) || left.day.localeCompare(right.day) || left.time.localeCompare(right.time);
       });
       saveBookings();
-      renderBookingList('Booked ' + booking.className + ' on ' + booking.day + ' at ' + booking.time + '.', true);
+      renderBookingList('Selected ' + booking.className + ' on ' + booking.day + ' at ' + booking.time + '.', true);
     });
+
+    $bookNowButton.on('click', function () {
+      openBookingModal();
+    });
+
+    $bookingModal.on('click', '[data-close-booking-modal="true"]', function () {
+      closeBookingModal(true);
+    });
+
+    $(document).on('keydown', function (event) {
+      if (event.key === 'Escape' && $bookingModal.hasClass('is-open')) {
+        closeBookingModal(true);
+      }
+    });
+
+    if ($bookingForm.length) {
+      const bookingFields = [
+        {
+          id: 'membership-number',
+          message: 'Enter a valid membership number.',
+          validate: function (value) {
+            return value === '123456789';
+          }
+        },
+        {
+          id: 'booking-name',
+          message: 'Please enter your full name.',
+          validate: function (value) {
+            return value.length > 0;
+          }
+        },
+        {
+          id: 'booking-address',
+          message: 'Please enter your address.',
+          validate: function (value) {
+            return value.length > 0;
+          }
+        },
+        {
+          id: 'booking-email',
+          message: 'Please enter a valid email address.',
+          validate: function (value) {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+          }
+        },
+        {
+          id: 'booking-phone',
+          message: 'Please enter a valid phone number.',
+          validate: function (value) {
+            const digitsOnly = value.replace(/\D/g, '');
+            return /^[0-9+()\s-]+$/.test(value) && digitsOnly.length >= 7;
+          }
+        }
+      ];
+
+      $bookingForm.on('submit', function (event) {
+        event.preventDefault();
+
+        let isValid = true;
+
+        bookingFields.forEach(function (field) {
+          const $input = $('#' + field.id);
+          const $error = $('#' + field.id + '-error');
+          const value = $input.val().trim();
+          const fieldValid = field.validate(value);
+
+          if (!fieldValid) {
+            isValid = false;
+            $input.addClass('invalid');
+            $error.text(field.message);
+            return;
+          }
+
+          $input.removeClass('invalid');
+          $error.text('');
+        });
+
+        if (!isValid) {
+          $bookingFormStatus.removeClass('success').addClass('error').text('Please fix the errors above before confirming your booking.');
+          return;
+        }
+
+        const memberDetails = {
+          membershipNumber: $('#membership-number').val().trim(),
+          name: $('#booking-name').val().trim(),
+          address: $('#booking-address').val().trim(),
+          email: $('#booking-email').val().trim(),
+          phone: $('#booking-phone').val().trim(),
+          classes: bookings.slice()
+        };
+
+        console.log('Class booking submitted:', memberDetails);
+
+        const selectedCount = bookings.length;
+        const memberName = memberDetails.name;
+
+        bookings = [];
+        saveBookings();
+        renderBookingList('Booking confirmed for ' + memberName + '. We have reserved ' + selectedCount + ' class' + (selectedCount === 1 ? '' : 'es') + '.', true);
+        $bookingForm[0].reset();
+        closeBookingModal(false);
+      });
+
+      $bookingForm.find('input, textarea').on('input', function () {
+        $(this).removeClass('invalid');
+        $('#' + this.id + '-error').text('');
+
+        if ($bookingFormStatus.hasClass('error')) {
+          $bookingFormStatus.removeClass('error').text('');
+        }
+      });
+    }
 
     renderBookingList();
   }

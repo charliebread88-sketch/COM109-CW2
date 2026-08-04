@@ -113,7 +113,7 @@
       <div class="container">
         <h2 id="classes-overview-heading" class="section-title">Find Your Session</h2>
         <p class="classes-intro">Every class is coached, scalable, and built to help members train with intent. Use the showcase tiles above to switch between class timetables.</p>
-        <p class="classes-note">Click a time slot to book or cancel that class instantly.</p>
+        <p class="classes-note">Select one or more time slots, then use Book now to complete your class booking.</p>
 
         <div class="classes-layout">
           <div class="class-schedule-panels">
@@ -226,12 +226,62 @@
 
         <section class="booking-summary" aria-labelledby="booking-summary-heading">
           <div class="booking-summary-header">
-            <h3 id="booking-summary-heading">Your Class Bookings</h3>
-            <p>Your selected sessions are saved in this browser using local storage.</p>
+            <h3 id="booking-summary-heading">Your Selected Classes</h3>
+            <p>Your selected sessions are saved in this browser until you confirm the booking form.</p>
           </div>
-          <p class="booking-status" id="booking-status" role="status" aria-live="polite" aria-atomic="true">No classes booked yet.</p>
+          <p class="booking-status" id="booking-status" role="status" aria-live="polite" aria-atomic="true">No classes selected yet.</p>
           <ul class="booking-list" id="booking-list" role="list"></ul>
+          <div class="booking-actions">
+            <button class="btn btn-primary" id="book-now-button" type="button" hidden aria-controls="booking-form-modal">Book now</button>
+          </div>
         </section>
+
+        <div class="booking-modal" id="booking-form-modal" hidden>
+          <div class="booking-modal-backdrop" data-close-booking-modal="true"></div>
+          <div class="booking-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="booking-form-heading">
+            <button class="booking-modal-close" type="button" aria-label="Close booking form" data-close-booking-modal="true">&times;</button>
+            <div class="booking-modal-header">
+              <h3 id="booking-form-heading">Complete your booking</h3>
+              <p>Enter your details to confirm the classes you have selected.</p>
+            </div>
+            <div class="booking-selection-preview">
+              <h4>Selected sessions</h4>
+              <ul class="booking-form-class-list" id="booking-form-class-list" role="list"></ul>
+            </div>
+            <form class="booking-form" id="class-booking-form" novalidate>
+              <p class="booking-form-note">Use membership number 123456789 to test a valid booking.</p>
+              <div class="booking-form-grid">
+                <div class="booking-form-group">
+                  <label for="membership-number">Membership number</label>
+                  <input type="text" id="membership-number" name="membership-number" inputmode="numeric" autocomplete="off" />
+                  <span class="form-error" id="membership-number-error"></span>
+                </div>
+                <div class="booking-form-group">
+                  <label for="booking-name">Full name</label>
+                  <input type="text" id="booking-name" name="booking-name" autocomplete="name" />
+                  <span class="form-error" id="booking-name-error"></span>
+                </div>
+                <div class="booking-form-group booking-form-group-full">
+                  <label for="booking-address">Address</label>
+                  <textarea id="booking-address" name="booking-address" rows="3" autocomplete="street-address"></textarea>
+                  <span class="form-error" id="booking-address-error"></span>
+                </div>
+                <div class="booking-form-group">
+                  <label for="booking-email">Email</label>
+                  <input type="email" id="booking-email" name="booking-email" autocomplete="email" />
+                  <span class="form-error" id="booking-email-error"></span>
+                </div>
+                <div class="booking-form-group">
+                  <label for="booking-phone">Phone number</label>
+                  <input type="tel" id="booking-phone" name="booking-phone" autocomplete="tel" />
+                  <span class="form-error" id="booking-phone-error"></span>
+                </div>
+              </div>
+              <p class="booking-form-status" id="class-booking-form-status" role="status" aria-live="polite" aria-atomic="true"></p>
+              <button class="btn btn-primary" type="submit">Confirm booking</button>
+            </form>
+          </div>
+        </div>
       </div>
     </section>
 
