@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Classes - Peak Performance Gym</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" type="image/png" href="images/favicon.png" />
+  <script src="js/jquery.min.js" defer></script>
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="Peak Performance Gym - Home">
+        Peak<span>Performance</span>
+      </a>
+      <button class="nav-toggle" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="main-nav" aria-label="Main navigation">
+        <ul role="list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="#">Membership</a></li>
+          <li><a href="classes.html" class="active" aria-current="page">Classes</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content" tabindex="-1">
+
+    <section class="page-hero classes-hero" aria-labelledby="page-hero-heading" role="region">
+      <div class="page-hero-overlay"></div>
+      <div class="container page-hero-content">
+        <h1 id="page-hero-heading">Classes</h1>
+        <p>Pick your training style, then check the weekly timetable in one click.</p>
+      </div>
+    </section>
+
+    <section class="class-showcase section-pad" aria-labelledby="class-showcase-heading" role="region">
+      <div class="container">
+        <h2 id="class-showcase-heading" class="section-title">Explore Class Types</h2>
+        <p class="classes-intro">Start with a visual overview. Choose a class tile to jump straight into its timetable and booking slots below.</p>
+
+        <div class="class-showcase-grid" role="list" aria-label="Class showcase tiles">
+          <button class="class-showcase-card class-showcase-spin active" type="button" data-class-target="spin" aria-controls="class-panel-spin" aria-selected="true">
+            <span class="class-showcase-overlay"></span>
+            <span class="class-showcase-content">
+              <span class="class-showcase-name">Spin</span>
+              <span class="class-showcase-copy">Low-light rides, sprint intervals, and coached climbs.</span>
+            </span>
+          </button>
+          <button class="class-showcase-card class-showcase-hyrox" type="button" data-class-target="hyrox" aria-controls="class-panel-hyrox" aria-selected="false">
+            <span class="class-showcase-overlay"></span>
+            <span class="class-showcase-content">
+              <span class="class-showcase-name">Hyrox</span>
+              <span class="class-showcase-copy">Hybrid race prep with sleds, runs, carries, and stations.</span>
+            </span>
+          </button>
+          <button class="class-showcase-card class-showcase-hiit" type="button" data-class-target="hiit" aria-controls="class-panel-hiit" aria-selected="false">
+            <span class="class-showcase-overlay"></span>
+            <span class="class-showcase-content">
+              <span class="class-showcase-name">HIIT</span>
+              <span class="class-showcase-copy">Sharp conditioning blocks for speed, power, and stamina.</span>
+            </span>
+          </button>
+          <button class="class-showcase-card class-showcase-sweat" type="button" data-class-target="sweat" aria-controls="class-panel-sweat" aria-selected="false">
+            <span class="class-showcase-overlay"></span>
+            <span class="class-showcase-content">
+              <span class="class-showcase-name">Sweat</span>
+              <span class="class-showcase-copy">Fast-moving full-body sessions with a strong group feel.</span>
+            </span>
+          </button>
+          <button class="class-showcase-card class-showcase-strength" type="button" data-class-target="strength" aria-controls="class-panel-strength" aria-selected="false">
+            <span class="class-showcase-overlay"></span>
+            <span class="class-showcase-content">
+              <span class="class-showcase-name">Strength</span>
+              <span class="class-showcase-copy">Barbell and dumbbell work focused on control and progression.</span>
+            </span>
+          </button>
+          <button class="class-showcase-card class-showcase-recovery" type="button" data-class-target="recovery" aria-controls="class-panel-recovery" aria-selected="false">
+            <span class="class-showcase-overlay"></span>
+            <span class="class-showcase-content">
+              <span class="class-showcase-name">Recovery</span>
+              <span class="class-showcase-copy">Mobility, breathwork, and reset sessions between harder days.</span>
+            </span>
+          </button>
+          <button class="class-showcase-card class-showcase-boxing" type="button" data-class-target="boxing" aria-controls="class-panel-boxing" aria-selected="false">
+            <span class="class-showcase-overlay"></span>
+            <span class="class-showcase-content">
+              <span class="class-showcase-name">Boxing</span>
+              <span class="class-showcase-copy">Pad rounds, footwork drills, and sharp conditioning with coach-led combinations.</span>
+            </span>
+          </button>
+          <button class="class-showcase-card class-showcase-yoga" type="button" data-class-target="yoga" aria-controls="class-panel-yoga" aria-selected="false">
+            <span class="class-showcase-overlay"></span>
+            <span class="class-showcase-content">
+              <span class="class-showcase-name">Yoga</span>
+              <span class="class-showcase-copy">Flow-based mobility and recovery sessions to build balance, focus, and range.</span>
+            </span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="classes-overview section-pad" aria-labelledby="classes-overview-heading" role="region">
+      <div class="container">
+        <h2 id="classes-overview-heading" class="section-title">Find Your Session</h2>
+        <p class="classes-intro">Every class is coached, scalable, and built to help members train with intent. Use the showcase tiles above to switch between class timetables.</p>
+        <p class="classes-note">Select one or more time slots, then use Book now to complete your class booking.</p>
+
+        <div class="classes-layout">
+          <div class="class-schedule-panels">
+            <article class="class-schedule-panel active" id="class-panel-spin" role="tabpanel" aria-labelledby="class-showcase-heading">
+              <div class="class-panel-header">
+                <h3>Spin Timetable</h3>
+                <p>Coach-led indoor cycling sessions built around endurance, climbs, and sprint blocks.</p>
+              </div>
+              <div class="schedule-grid" aria-label="Spin weekly schedule">
+                <div class="schedule-card"><span class="schedule-day">Monday</span><span class="schedule-time">06:30 - 07:15</span><span class="schedule-coach">Coach - Mia</span></div>
+                <div class="schedule-card"><span class="schedule-day">Tuesday</span><span class="schedule-time">18:00 - 18:45</span><span class="schedule-coach">Coach - Jordan</span></div>
+                <div class="schedule-card"><span class="schedule-day">Wednesday</span><span class="schedule-time">12:30 - 13:15</span><span class="schedule-coach">Coach - Mia</span></div>
+                <div class="schedule-card"><span class="schedule-day">Thursday</span><span class="schedule-time">19:00 - 19:45</span><span class="schedule-coach">Coach - Ellis</span></div>
+                <div class="schedule-card"><span class="schedule-day">Saturday</span><span class="schedule-time">09:00 - 09:45</span><span class="schedule-coach">Coach - Jordan</span></div>
+              </div>
+            </article>
+
+            <article class="class-schedule-panel" id="class-panel-hyrox" role="tabpanel" aria-labelledby="class-showcase-heading" hidden>
+              <div class="class-panel-header">
+                <h3>Hyrox Timetable</h3>
+                <p>Structured race simulation sessions combining running, sled work, carries, and station practice.</p>
+              </div>
+              <div class="schedule-grid" aria-label="Hyrox weekly schedule">
+                <div class="schedule-card"><span class="schedule-day">Monday</span><span class="schedule-time">19:00 - 20:00</span><span class="schedule-coach">Coach - Marcus</span></div>
+                <div class="schedule-card"><span class="schedule-day">Wednesday</span><span class="schedule-time">17:30 - 18:30</span><span class="schedule-coach">Coach - Danny</span></div>
+                <div class="schedule-card"><span class="schedule-day">Friday</span><span class="schedule-time">18:00 - 19:00</span><span class="schedule-coach">Coach - Marcus</span></div>
+                <div class="schedule-card"><span class="schedule-day">Saturday</span><span class="schedule-time">10:30 - 11:30</span><span class="schedule-coach">Coach - Danny</span></div>
+              </div>
+            </article>
+
+            <article class="class-schedule-panel" id="class-panel-hiit" role="tabpanel" aria-labelledby="class-showcase-heading" hidden>
+              <div class="class-panel-header">
+                <h3>HIIT Timetable</h3>
+                <p>Fast-paced interval circuits aimed at improving conditioning, work capacity, and confidence.</p>
+              </div>
+              <div class="schedule-grid" aria-label="HIIT weekly schedule">
+                <div class="schedule-card"><span class="schedule-day">Tuesday</span><span class="schedule-time">06:15 - 07:00</span><span class="schedule-coach">Coach - Sophie</span></div>
+                <div class="schedule-card"><span class="schedule-day">Wednesday</span><span class="schedule-time">18:15 - 19:00</span><span class="schedule-coach">Coach - Danny</span></div>
+                <div class="schedule-card"><span class="schedule-day">Thursday</span><span class="schedule-time">12:15 - 13:00</span><span class="schedule-coach">Coach - Sophie</span></div>
+                <div class="schedule-card"><span class="schedule-day">Sunday</span><span class="schedule-time">09:30 - 10:15</span><span class="schedule-coach">Coach - Danny</span></div>
+              </div>
+            </article>
+
+            <article class="class-schedule-panel" id="class-panel-sweat" role="tabpanel" aria-labelledby="class-showcase-heading" hidden>
+              <div class="class-panel-header">
+                <h3>Sweat Timetable</h3>
+                <p>Signature conditioning blocks that mix bodyweight, kettlebells, and team energy.</p>
+              </div>
+              <div class="schedule-grid" aria-label="Sweat weekly schedule">
+                <div class="schedule-card"><span class="schedule-day">Monday</span><span class="schedule-time">17:30 - 18:15</span><span class="schedule-coach">Coach - Lisa</span></div>
+                <div class="schedule-card"><span class="schedule-day">Thursday</span><span class="schedule-time">06:30 - 07:15</span><span class="schedule-coach">Coach - Ellis</span></div>
+                <div class="schedule-card"><span class="schedule-day">Friday</span><span class="schedule-time">12:30 - 13:15</span><span class="schedule-coach">Coach - Lisa</span></div>
+                <div class="schedule-card"><span class="schedule-day">Saturday</span><span class="schedule-time">08:00 - 08:45</span><span class="schedule-coach">Coach - Ellis</span></div>
+              </div>
+            </article>
+
+            <article class="class-schedule-panel" id="class-panel-strength" role="tabpanel" aria-labelledby="class-showcase-heading" hidden>
+              <div class="class-panel-header">
+                <h3>Strength Timetable</h3>
+                <p>Barbell, dumbbell, and accessory sessions focused on lifting mechanics and progressive overload.</p>
+              </div>
+              <div class="schedule-grid" aria-label="Strength weekly schedule">
+                <div class="schedule-card"><span class="schedule-day">Monday</span><span class="schedule-time">12:00 - 12:50</span><span class="schedule-coach">Coach - Marcus</span></div>
+                <div class="schedule-card"><span class="schedule-day">Tuesday</span><span class="schedule-time">19:15 - 20:05</span><span class="schedule-coach">Coach - Marcus</span></div>
+                <div class="schedule-card"><span class="schedule-day">Thursday</span><span class="schedule-time">17:45 - 18:35</span><span class="schedule-coach">Coach - Sophie</span></div>
+                <div class="schedule-card"><span class="schedule-day">Sunday</span><span class="schedule-time">11:00 - 11:50</span><span class="schedule-coach">Coach - Sophie</span></div>
+              </div>
+            </article>
+
+            <article class="class-schedule-panel" id="class-panel-recovery" role="tabpanel" aria-labelledby="class-showcase-heading" hidden>
+              <div class="class-panel-header">
+                <h3>Recovery Timetable</h3>
+                <p>Low-impact mobility flows, stretch sessions, and guided recovery work to keep training sustainable.</p>
+              </div>
+              <div class="schedule-grid" aria-label="Recovery weekly schedule">
+                <div class="schedule-card"><span class="schedule-day">Wednesday</span><span class="schedule-time">07:30 - 08:15</span><span class="schedule-coach">Coach - Lisa</span></div>
+                <div class="schedule-card"><span class="schedule-day">Friday</span><span class="schedule-time">17:00 - 17:45</span><span class="schedule-coach">Coach - Lisa</span></div>
+                <div class="schedule-card"><span class="schedule-day">Saturday</span><span class="schedule-time">12:00 - 12:45</span><span class="schedule-coach">Coach - Sophie</span></div>
+                <div class="schedule-card"><span class="schedule-day">Sunday</span><span class="schedule-time">08:30 - 09:15</span><span class="schedule-coach">Coach - Lisa</span></div>
+              </div>
+            </article>
+
+            <article class="class-schedule-panel" id="class-panel-boxing" role="tabpanel" aria-labelledby="class-showcase-heading" hidden>
+              <div class="class-panel-header">
+                <h3>Boxing Timetable</h3>
+                <p>Technique-led boxing sessions with bag work, pad rounds, footwork, and high-tempo conditioning.</p>
+              </div>
+              <div class="schedule-grid" aria-label="Boxing weekly schedule">
+                <div class="schedule-card"><span class="schedule-day">Tuesday</span><span class="schedule-time">17:30 - 18:20</span><span class="schedule-coach">Coach - Jordan</span></div>
+                <div class="schedule-card"><span class="schedule-day">Thursday</span><span class="schedule-time">19:15 - 20:05</span><span class="schedule-coach">Coach - Mia</span></div>
+                <div class="schedule-card"><span class="schedule-day">Saturday</span><span class="schedule-time">11:00 - 11:50</span><span class="schedule-coach">Coach - Jordan</span></div>
+                <div class="schedule-card"><span class="schedule-day">Sunday</span><span class="schedule-time">10:30 - 11:20</span><span class="schedule-coach">Coach - Mia</span></div>
+              </div>
+            </article>
+
+            <article class="class-schedule-panel" id="class-panel-yoga" role="tabpanel" aria-labelledby="class-showcase-heading" hidden>
+              <div class="class-panel-header">
+                <h3>Yoga Timetable</h3>
+                <p>Breath-led flow sessions designed to improve mobility, posture, recovery, and body awareness.</p>
+              </div>
+              <div class="schedule-grid" aria-label="Yoga weekly schedule">
+                <div class="schedule-card"><span class="schedule-day">Monday</span><span class="schedule-time">18:30 - 19:20</span><span class="schedule-coach">Coach - Sophie</span></div>
+                <div class="schedule-card"><span class="schedule-day">Wednesday</span><span class="schedule-time">12:15 - 13:00</span><span class="schedule-coach">Coach - Lisa</span></div>
+                <div class="schedule-card"><span class="schedule-day">Friday</span><span class="schedule-time">07:00 - 07:45</span><span class="schedule-coach">Coach - Sophie</span></div>
+                <div class="schedule-card"><span class="schedule-day">Sunday</span><span class="schedule-time">17:00 - 17:45</span><span class="schedule-coach">Coach - Lisa</span></div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <section class="booking-summary" aria-labelledby="booking-summary-heading">
+          <div class="booking-summary-header">
+            <h3 id="booking-summary-heading">Your Selected Classes</h3>
+            <p>Your selected sessions are saved in this browser until you confirm the booking form.</p>
+          </div>
+          <p class="booking-status" id="booking-status" role="status" aria-live="polite" aria-atomic="true">No classes selected yet.</p>
+          <ul class="booking-list" id="booking-list" role="list"></ul>
+          <div class="booking-actions">
+            <button class="btn btn-primary" id="book-now-button" type="button" hidden aria-controls="booking-form-modal">Book now</button>
+          </div>
+        </section>
+
+        <div class="booking-modal" id="booking-form-modal" hidden>
+          <div class="booking-modal-backdrop" data-close-booking-modal="true"></div>
+          <div class="booking-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="booking-form-heading">
+            <button class="booking-modal-close" type="button" aria-label="Close booking form" data-close-booking-modal="true">&times;</button>
+            <div class="booking-modal-header">
+              <h3 id="booking-form-heading">Complete your booking</h3>
+              <p>Enter your details to confirm the classes you have selected.</p>
+            </div>
+            <div class="booking-selection-preview">
+              <h4>Selected sessions</h4>
+              <ul class="booking-form-class-list" id="booking-form-class-list" role="list"></ul>
+            </div>
+            <form class="booking-form" id="class-booking-form" novalidate>
+              <p class="booking-form-note">Use membership number 123456789 to test a valid booking.</p>
+              <div class="booking-form-grid">
+                <div class="booking-form-group">
+                  <label for="membership-number">Membership number</label>
+                  <input type="text" id="membership-number" name="membership-number" inputmode="numeric" autocomplete="off" />
+                  <span class="form-error" id="membership-number-error"></span>
+                </div>
+                <div class="booking-form-group">
+                  <label for="booking-name">Full name</label>
+                  <input type="text" id="booking-name" name="booking-name" autocomplete="name" />
+                  <span class="form-error" id="booking-name-error"></span>
+                </div>
+                <div class="booking-form-group booking-form-group-full">
+                  <label for="booking-address">Address</label>
+                  <textarea id="booking-address" name="booking-address" rows="3" autocomplete="street-address"></textarea>
+                  <span class="form-error" id="booking-address-error"></span>
+                </div>
+                <div class="booking-form-group">
+                  <label for="booking-email">Email</label>
+                  <input type="email" id="booking-email" name="booking-email" autocomplete="email" />
+                  <span class="form-error" id="booking-email-error"></span>
+                </div>
+                <div class="booking-form-group">
+                  <label for="booking-phone">Phone number</label>
+                  <input type="tel" id="booking-phone" name="booking-phone" autocomplete="tel" />
+                  <span class="form-error" id="booking-phone-error"></span>
+                </div>
+              </div>
+              <p class="booking-form-status" id="class-booking-form-status" role="status" aria-live="polite" aria-atomic="true"></p>
+              <button class="btn btn-primary" type="submit">Confirm booking</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-banner section-pad" aria-labelledby="cta-heading" role="region">
+      <div class="container cta-inner">
+        <h2 id="cta-heading">Need Help Choosing?</h2>
+        <p>Speak to the team and we will match you to the right class based on your goals and experience.</p>
+        <a href="contact.html" class="btn btn-primary">Book a Free Trial</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <p class="logo">Peak<span>Performance</span></p>
+      <nav aria-label="Footer navigation">
+        <ul role="list">
+          <li><a href="about.html">About</a></li>
+          <li><a href="#">Membership</a></li>
+          <li><a href="classes.html">Classes</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <p class="footer-copy">&copy; <span id="year"></span> Peak Performance Gym. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
