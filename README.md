@@ -15,7 +15,7 @@ This multi-page web application was developed as part of Coursework 2 for the Cl
 | :--- | :--- | :--- |
 | **[David Willis]** | `[B01047925]` | Semantic HTML5, ARIA accessibility, skip links, favicon nav & footer links |
 | **[Eoin Heyes]** | `[B01021565]` | CSS Architecture, Responsive Grid/Flexbox layouts, Animations |
-| **[Member 3 Name]** | `[ID]` | Interactive Web Form, Regex Validation, Dynamic UI (jQuery) |
+| **[Nathan Alexander]** | `[B00969642]` | JavaScript logic, localStorage management, booking form validation, dynamic UI interactions |
 | **[Charlie Baker]** | `[B01038922]` | JavaScript logic, `localStorage`/`sessionStorage` management |
 
 ---
