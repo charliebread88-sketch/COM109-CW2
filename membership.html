@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Join Membership | Peak Performance Gym</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" type="image/png" href="images/favicon.png" />
+  <script src="js/jquery.min.js" defer></script>
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+
+  <!-- ===== SKIP LINK ===== -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ===== HEADER / NAV ===== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="Peak Performance Gym – Home">
+        Peak<span>Performance</span>
+      </a>
+
+      <button class="nav-toggle" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav id="main-nav" aria-label="Main navigation">
+        <ul role="list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="membership.html" class="active" aria-current="page">Membership</a></li>
+          <li><a href="classes.html">Classes</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content" tabindex="-1">
+
+    <!-- ===== HERO ===== -->
+    <section class="page-hero" aria-labelledby="page-heading">
+      <div class="page-hero-overlay"></div>
+      <div class="container page-hero-content">
+        <h1 id="page-heading">Join a Membership</h1>
+        <p>Choose the plan that fits your goals, your schedule, and your budget.</p>
+      </div>
+    </section>
+
+    <!-- ===== MEMBERSHIP OPTIONS ===== -->
+    <section class="section-pad" aria-labelledby="plans-heading">
+      <div class="container">
+        <h2 id="plans-heading" class="section-title">Membership Options</h2>
+
+        <div class="plans-grid">
+          <article class="plan-card">
+            <h3>Basic</h3>
+            <p class="price">£19<span>/mo</span></p>
+            <ul role="list">
+              <li>Gym floor access</li>
+              <li>Locker room access</li>
+              <li>2 group classes per month</li>
+            </ul>
+            <a href="#join-form" class="btn btn-outline">Select Basic</a>
+          </article>
+
+          <article class="plan-card featured">
+            <span class="badge">Most Popular</span>
+            <h3>Standard</h3>
+            <p class="price">£35<span>/mo</span></p>
+            <ul role="list">
+              <li>Everything in Basic</li>
+              <li>Unlimited group classes</li>
+              <li>1 personal training session per month</li>
+            </ul>
+            <a href="#join-form" class="btn btn-primary">Select Standard</a>
+          </article>
+
+          <article class="plan-card">
+            <h3>Premium</h3>
+            <p class="price">£55<span>/mo</span></p>
+            <ul role="list">
+              <li>Everything in Standard</li>
+              <li>Unlimited PT sessions</li>
+              <li>Nutrition coaching</li>
+            </ul>
+            <a href="#join-form" class="btn btn-outline">Select Premium</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SIMPLE JOIN FORM ===== -->
+    <section class="section-pad bg-dark" id="join-form" aria-labelledby="form-heading">
+    <div class="container">
+    <h2 id="form-heading" class="section-title">Start Your Membership</h2>
+
+    <form class="join-form" action="#" method="post" novalidate>
+      <div class="form-grid">
+        <label>
+          <span>Full Name</span>
+          <input type="text" name="full-name" placeholder="Your name" required>
+          <small class="invalid-message"></small>
+        </label>
+
+        <label>
+          <span>Email Address</span>
+          <input type="email" name="email" placeholder="you@example.com" required>
+          <small class="invalid-message"></small>
+        </label>
+
+        <label>
+          <span>Phone Number</span>
+          <input type="tel" name="phone" placeholder="01234 567890">
+          <small class="invalid-message"></small>
+        </label>
+
+        <label>
+          <span>Membership Plan</span>
+          <select name="plan" required>
+            <option value="">Choose a plan</option>
+            <option value="basic">Basic - £19/mo</option>
+            <option value="standard">Standard - £35/mo</option>
+            <option value="premium">Premium - £55/mo</option>
+          </select>
+          <small class="invalid-message"></small>
+        </label>
+
+        <label class="full-width">
+          <span>Goals / Notes</span>
+          <textarea name="notes" rows="5" placeholder="Tell us about your goals, training experience, or any questions..."></textarea>
+          <small class="invalid-message"></small>
+        </label>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Join Now</button>
+    </form>
+  </div>
+</section>
+
+
+    <!-- ===== FAQ / QUICK INFO ===== -->
+    <section class="section-pad" aria-labelledby="info-heading">
+      <div class="container">
+        <h2 id="info-heading" class="section-title">What Happens Next?</h2>
+
+        <div class="features-grid">
+          <article class="feature-card">
+            <div class="feature-icon" aria-hidden="true">1</div>
+            <h3>Choose Your Plan</h3>
+            <p>Select the membership that suits your training needs.</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon" aria-hidden="true">2</div>
+            <h3>Submit Your Details</h3>
+            <p>Fill out the form and our team will contact you shortly.</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon" aria-hidden="true">3</div>
+            <h3>Start Training</h3>
+            <p>Get access to the gym and start your fitness journey.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CTA ===== -->
+    <section class="cta-banner section-pad" aria-labelledby="cta-heading">
+      <div class="container cta-inner">
+        <h2 id="cta-heading">Not Sure Which Plan Is Right?</h2>
+        <p>Contact our team and we’ll help you find the best membership for your goals.</p>
+        <a href="contact.html" class="btn btn-primary">Contact Us</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <p class="logo">Peak<span>Performance</span></p>
+      <nav aria-label="Footer navigation">
+        <ul role="list">
+          <li><a href="about.html">About</a></li>
+          <li><a href="membership.html">Membership</a></li>
+          <li><a href="classes.html">Classes</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <p class="footer-copy">&copy; <span id="year"></span> Peak Performance Gym. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
