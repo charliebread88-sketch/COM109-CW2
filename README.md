@@ -13,7 +13,7 @@ This multi-page web application was developed as part of Coursework 2 for the Cl
 
 | Name | Student ID | Individual Responsibilities / Modules |
 | :--- | :--- | :--- |
-| **[David Willis]** | `[B01047925]` | Semantic HTML5, CSS Architecture, JavaScript logic, ARIA accessibility, skip links, favicon, nav & footer links |
+| **[David Willis]** | `[B01047925]` | Semantic HTML5, CSS Architecture, JavaScript logic, ARIA accessibility, skip links, favicon, nav & footer links, `sessionStorage` |
 | **[Eoin Heyes]** | `[B01021565]` | HTML and CSS Architecture, Responsive Grid/Flexbox layouts, Contact web form with validation |
 | **[Nathan Alexander]** | `[B00969642]` | JavaScript logic, `sessionStorage` management, booking form validation, dynamic UI interactions |
 | **[Charlie Baker]** | `[B01038922]` | JavaScript logic, `sessionStorage` management |
