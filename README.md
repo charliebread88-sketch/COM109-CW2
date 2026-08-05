@@ -14,9 +14,9 @@ This multi-page web application was developed as part of Coursework 2 for the Cl
 | Name | Student ID | Individual Responsibilities / Modules |
 | :--- | :--- | :--- |
 | **[David Willis]** | `[B01047925]` | Semantic HTML5, ARIA accessibility, skip links, favicon nav & footer links |
-| **[Eoin Heyes]** | `[B01021565]` | CSS Architecture, Responsive Grid/Flexbox layouts, Animations |
-| **[Nathan Alexander]** | `[B00969642]` | JavaScript logic, localStorage management, booking form validation, dynamic UI interactions |
-| **[Charlie Baker]** | `[B01038922]` | JavaScript logic, `localStorage`/`sessionStorage` management |
+| **[Eoin Heyes]** | `[B01021565]` | HTML and CSS Architecture, Responsive Grid/Flexbox layouts, Contact web form with validation |
+| **[Nathan Alexander]** | `[B00969642]` | JavaScript logic, `sessionStorage` management, booking form validation, dynamic UI interactions |
+| **[Charlie Baker]** | `[B01038922]` | JavaScript logic, `sessionStorage` management |
 
 ---
 
@@ -26,4 +26,4 @@ This multi-page web application was developed as part of Coursework 2 for the Cl
 * **Modern CSS3:** Fully responsive layouts using Flexbox and CSS Grid, integrated with custom UI transitions and animations.
 * **JavaScript & jQuery:** Dynamic event handling, DOM manipulation, and interactive component updates.
 * **Web Form & Client-Side Validation:** Interactive input handling with custom JavaScript/Regex input validation.
-* **Data Storage:** Uses `localStorage` / `sessionStorage` to retain user data across browser sessions.
+* **Data Storage:** Uses `sessionStorage` to retain user data across browser sessions.
