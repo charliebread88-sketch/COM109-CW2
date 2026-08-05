@@ -457,13 +457,22 @@ $(document).ready(function () {
   // Footer year
   $('#year').text(new Date().getFullYear());
 
-  // Picks plan based off what plan is clicked on index form
-  if (window.location.pathname.endsWith('membership.html')) {
-    const planParam = new URLSearchParams(window.location.search).get('plan');
-    const allowedPlans = ['basic', 'standard', 'premium'];
+  const allowedPlans = ['basic', 'standard', 'premium'];
 
-    if (planParam && allowedPlans.includes(planParam) && $('select[name="plan"]').length) {
-      $('select[name="plan"]').val(planParam).trigger('change');
+  // Store chosen plan in sessionStorage when clicking a plan card from any page
+  $(document).on('click', '.select-plan', function () {
+    const plan = $(this).data('plan');
+    if (allowedPlans.includes(plan)) {
+      sessionStorage.setItem('selectedPlan', plan);
+    }
+  });
+
+  // On membership page, apply stored plan to the dropdown
+  if (window.location.pathname.endsWith('membership.html')) {
+    const storedPlan = sessionStorage.getItem('selectedPlan');
+    if (storedPlan && allowedPlans.includes(storedPlan) && $('select[name="plan"]').length) {
+      $('select[name="plan"]').val(storedPlan).trigger('change');
+      sessionStorage.removeItem('selectedPlan');
     }
   }
 
