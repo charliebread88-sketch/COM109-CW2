@@ -92,52 +92,53 @@
     </section>
 
     <!-- ===== SIMPLE JOIN FORM ===== -->
-    <section class="section-pad bg-dark" id="join-form" aria-labelledby="form-heading">
-    <div class="container">
-    <h2 id="form-heading" class="section-title">Start Your Membership</h2>
+    <section class="contact-form section-pad bg-dark" id="join-form" aria-labelledby="form-heading">
+      <div class="container">
+        <h2 id="form-heading" class="section-title">Start Your Membership</h2>
 
-    <form class="join-form" action="#" method="post" novalidate>
-      <div class="form-grid">
-        <label>
-          <span>Full Name</span>
-          <input type="text" name="full-name" placeholder="Your name" required>
-          <small class="invalid-message"></small>
-        </label>
-
-        <label>
-          <span>Email Address</span>
-          <input type="email" name="email" placeholder="you@example.com" required>
-          <small class="invalid-message"></small>
-        </label>
-
-        <label>
-          <span>Phone Number</span>
-          <input type="tel" name="phone" placeholder="01234 567890">
-          <small class="invalid-message"></small>
-        </label>
-
-        <label>
-          <span>Membership Plan</span>
-          <select name="plan" required>
-            <option value="">Choose a plan</option>
-            <option value="basic">Basic - £19/mo</option>
-            <option value="standard">Standard - £35/mo</option>
-            <option value="premium">Premium - £55/mo</option>
-          </select>
-          <small class="invalid-message"></small>
-        </label>
-
-        <label class="full-width">
-          <span>Goals / Notes</span>
-          <textarea name="notes" rows="5" placeholder="Tell us about your goals, training experience, or any questions..."></textarea>
-          <small class="invalid-message"></small>
-        </label>
+        <form class="join-form" action="#" method="post" novalidate aria-label="Membership sign-up form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="full-name">Full Name <span aria-hidden="true">*</span><span class="sr-only">(required)</span></label>
+              <input type="text" id="full-name" name="full-name" autocomplete="name" required
+                aria-required="true" aria-describedby="full-name-error" />
+              <span class="form-error invalid-message" id="full-name-error" role="alert" aria-live="polite"></span>
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address <span aria-hidden="true">*</span><span class="sr-only">(required)</span></label>
+              <input type="email" id="email" name="email" autocomplete="email" required
+                aria-required="true" aria-describedby="email-error" />
+              <span class="form-error invalid-message" id="email-error" role="alert" aria-live="polite"></span>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" autocomplete="tel" aria-describedby="phone-error" />
+              <span class="form-error invalid-message" id="phone-error" role="alert" aria-live="polite"></span>
+            </div>
+            <div class="form-group">
+              <label for="plan">Membership Plan <span aria-hidden="true">*</span><span class="sr-only">(required)</span></label>
+              <select id="plan" name="plan" required aria-required="true" aria-describedby="plan-error">
+                <option value="">Choose a plan</option>
+                <option value="basic">Basic – £19/mo</option>
+                <option value="standard">Standard – £35/mo</option>
+                <option value="premium">Premium – £55/mo</option>
+              </select>
+              <span class="form-error invalid-message" id="plan-error" role="alert" aria-live="polite"></span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="notes">Goals / Notes</label>
+            <textarea id="notes" name="notes" rows="5" aria-describedby="notes-error"
+              placeholder="Tell us about your goals, training experience, or any questions..."></textarea>
+            <span class="form-error invalid-message" id="notes-error" role="alert" aria-live="polite"></span>
+          </div>
+          <button type="submit" class="btn btn-primary">Join Now</button>
+          <p class="form-status" id="join-form-status" role="status" aria-live="polite" aria-atomic="true"></p>
+        </form>
       </div>
-
-      <button type="submit" class="btn btn-primary">Join Now</button>
-    </form>
-  </div>
-</section>
+    </section>
 
 
     <!-- ===== FAQ / QUICK INFO ===== -->

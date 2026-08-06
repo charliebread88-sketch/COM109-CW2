@@ -464,6 +464,11 @@ $(document).ready(function () {
     const plan = $(this).data('plan');
     if (allowedPlans.includes(plan)) {
       sessionStorage.setItem('selectedPlan', plan);
+      // If already on membership page, set dropdown directly
+      const $planSelect = $('select[name="plan"]');
+      if ($planSelect.length) {
+        $planSelect.val(plan).trigger('change');
+      }
     }
   });
 
@@ -498,67 +503,86 @@ $(document).ready(function () {
   }
 
   // Membership form validation
-  $('.join-form').on('submit', function (e) {
-    e.preventDefault();
+  const $joinForm = $('.join-form');
 
-    let isValid = true;
+  if ($joinForm.length) {
+    const $joinStatus = $('#join-form-status');
+    const joinFields = [
+      { id: 'full-name', message: 'Please enter your full name.' },
+      { id: 'email', message: 'Please enter a valid email address.', isEmail: true },
+      { id: 'plan', message: 'Please choose a membership plan.' }
+    ];
 
-    // Clear previous errors
-    $('.invalid-field').removeClass('invalid-field');
-    $('.invalid-message').text('');
+    $joinForm.on('submit', function (e) {
+      e.preventDefault();
+      let isValid = true;
 
-    const name = $('input[name="full-name"]');
-    const email = $('input[name="email"]');
-    const phone = $('input[name="phone"]');
-    const plan = $('select[name="plan"]');
-    const notes = $('textarea[name="notes"]');
+      joinFields.forEach(function (field) {
+        const $input = $('#' + field.id);
+        const $error = $('#' + field.id + '-error');
+        const value = $input.val().trim();
+        let fieldValid = value.length > 0;
 
-    function markInvalid(field, message) {
-      field.addClass('invalid-field');
-      field.next('.invalid-message').text(message);
-      isValid = false;
-    }
+        if (fieldValid && field.isEmail) {
+          fieldValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+        }
 
-    // Name
-    if ($.trim(name.val()) === '') {
-      markInvalid(name, 'Please enter your full name.');
-    }
+        if (!fieldValid) {
+          isValid = false;
+          $input.addClass('invalid');
+          $error.text(field.message);
+        } else {
+          $input.removeClass('invalid');
+          $error.text('');
+        }
+      });
 
-    // Email
-    const emailValue = $.trim(email.val());
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (emailValue === '') {
-      markInvalid(email, 'Please enter your email address.');
-    } else if (!emailPattern.test(emailValue)) {
-      markInvalid(email, 'Please enter a valid email address.');
-    }
+      // Phone optional but validate format if filled
+      const $phone = $('#phone');
+      const $phoneError = $('#phone-error');
+      const phoneValue = $phone.val().trim();
+      if (phoneValue !== '' && !/^[0-9+\-\s]{7,20}$/.test(phoneValue)) {
+        isValid = false;
+        $phone.addClass('invalid');
+        $phoneError.text('Please enter a valid phone number.');
+      } else {
+        $phone.removeClass('invalid');
+        $phoneError.text('');
+      }
 
-    // Phone (not required)
-    const phoneValue = $.trim(phone.val());
-    const phonePattern = /^[0-9+\-\s]{7,20}$/;
-    if (phoneValue !== '' && !phonePattern.test(phoneValue)) {
-      markInvalid(phone, 'Please enter a valid phone number.');
-    }
+      // Notes length check
+      const $notes = $('#notes');
+      const $notesError = $('#notes-error');
+      if ($notes.val().trim().length > 300) {
+        isValid = false;
+        $notes.addClass('invalid');
+        $notesError.text('Notes must be 300 characters or fewer.');
+      } else {
+        $notes.removeClass('invalid');
+        $notesError.text('');
+      }
 
-    // Plan
-    if (plan.val() === '') {
-      markInvalid(plan, 'Please choose a membership plan.');
-    }
+      if (!isValid) {
+        $joinStatus.removeClass('success').addClass('error').text('Please fix the errors above and try again.');
+        return;
+      }
 
-    // Notes
-    if ($.trim(notes.val()).length > 300) {
-      markInvalid(notes, 'Notes must be 300 characters or fewer.');
-    }
-
-    if (isValid) {
       sessionStorage.setItem('gymJoinSuccess', 'true');
       window.location.href = 'index.html';
-    }
-  });
+    });
 
-  // Clear invalid style as user edits fields
-  $('.join-form input, .join-form select, .join-form textarea').on('input change', function () {
-    $(this).removeClass('invalid-field');
-    $(this).next('.invalid-message').text('');
-  });
+    // Clear errors as user types
+    joinFields.forEach(function (field) {
+      $('#' + field.id).on('input change', function () {
+        $(this).removeClass('invalid');
+        $('#' + field.id + '-error').text('');
+        $joinStatus.removeClass('error').text('');
+      });
+    });
+
+    $('#phone, #notes').on('input', function () {
+      $(this).removeClass('invalid');
+      $('#' + this.id + '-error').text('');
+    });
+  }
 });
